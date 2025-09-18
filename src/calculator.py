@@ -44,11 +44,22 @@ def subtract(a, b):
     return format_result(result)
 
 
-def divide(a, b):
+def multiply(a, b):
+    """
+    Multiply two numbers together.
+
+    Args:
+        a (float): First number
+        b (float): Second number
+
+    Returns:
+        float: Product of a and b
+
+    Raises:
+        TypeError: If inputs are not numbers
+    """
     validate_numbers(a, b)
-    if b == 0:
-        raise ZeroDivisionError("Cannot divide by zero")
-    result = a / b
+    result = a * b
     return format_result(result)
 
 
@@ -68,9 +79,8 @@ def main():
         if operation == "quit":
             print("Goodbye!")
             break
-
-        if operation not in ["add", "subtract", "divide"]:
-            print("Invalid operation. Please use 'add', 'subtract' or 'divide'")
+        if operation not in ["add", "subtract", "multiply"]:
+            print("Invalid operation. Please use 'add', 'subtract' or 'multiply'")
             continue
 
         try:
@@ -83,9 +93,9 @@ def main():
             elif operation == "subtract":
                 result = subtract(a, b)
                 print(f"Result: {a} - {b} = {result}")
-            elif operation == "divide":
-                result = divide(a, b)
-                print(f"Result: {a} / {b} = {result}")
+            elif operation == "multiply":
+                result = multiply(a, b)
+                print(f"Result: {a} * {b} = {result}")
         except ValueError:
             print("Please enter valid numbers")
         except TypeError as e:
